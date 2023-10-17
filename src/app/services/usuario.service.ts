@@ -22,6 +22,13 @@ export class UsuarioService {
       })
     );
   }
+
+  uploadFile(file: File): Observable<any>{
+    const formData = new FormData();
+    formData.append('file', file);
+    return this.http.post(this.apiUrl+ '/upload-image', formData);
+  }
+
   get(): Observable <User[]>{
     return this.http.get<User[]>(this.apiUrl+'/users').pipe(
       tap(_ => console.log('Datos Encontrado')),

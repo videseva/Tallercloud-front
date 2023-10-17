@@ -12,6 +12,10 @@ export class AppComponent {
   users2: any[] =[];
   user: User = new User;
   users: User[] = [];// La lista de objetos
+
+  selectedFile: File | null = null;
+
+
   constructor(private userServices: UsuarioService,) { }
   ngOnInit() {
     this.get();
@@ -30,6 +34,27 @@ export class AppComponent {
     this.userServices.get().subscribe(result => {
       this.users = result;
     });
+  }
+
+
+  onFileSelected(event: any) {
+    this.selectedFile = event.target.files[0];
+
+  }
+
+  uploadImage() {
+    if (this.selectedFile) {
+      console.log('selectedFile', this.selectedFile);
+      this.userServices.uploadFile(this.selectedFile).subscribe(data => {
+        console.log('Imagen creado:', data);
+        this.user.photo = data.unique_name;
+        alert("Imagen cargada con exito !");
+      },
+      (error) => {
+        // Maneja los errores si es necesario
+        console.error('Error al cargar el archivo:', error);
+      });
+    }
   }
 
   clear(){
