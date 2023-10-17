@@ -1,0 +1,80 @@
+<h1>Formulario de Registro</h1>
+
+<div class="container">
+  <div class="row">
+    <div class="card">
+      <h5 class="m-2">Registro de usuarios: </h5>
+      <hr>
+      <div class="card-body">
+        <section class="formulario m-2">
+          <form>
+            <div class="form-group">
+              <label class="form-label">Cedula: </label>
+              <input type="number" class="form-control"  name="id" [(ngModel)]="user.id" placeholder="">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Nombres: </label>
+              <input type="text" class="form-control" name="name" [(ngModel)]="user.name" placeholder="">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Apellidos: </label>
+              <input type="text" class="form-control" name="lastname" [(ngModel)]="user.lastname"  placeholder="">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Correo: </label>
+              <input type="email" class="form-control" name="email" [(ngModel)]="user.email"  placeholder="">
+            </div>
+            <div class="form-group">
+              <button type="submit" class="btn btn-primary" (click)="postUser()">Registrar</button>
+
+            </div>
+
+          </form>
+        </section>
+      </div>
+    </div>
+
+  </div>
+  <br>
+  <br>
+  <div class="row m-2">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="m-2">Listado de usuarios: </h5>
+        <hr>
+
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Cedula</th>
+              <th>Nombre</th>
+              <th>Apellido</th>
+              <th>Correo</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let u of users; index as i">
+              <th>{{ i+1 }}</th>
+              <td>{{ u.id }}</td>
+              <td>{{ u.name }}</td>
+              <td>{{ u.lastname }}</td>
+              <td>{{ u.email }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <section class="tabla">
+
+    </section>
+  </div>
+</div>
+
+<footer>
+  <div class=" pie">
+    <h6>Laura Dayana Mercado Cañizares & Eva Sandrith Vides Salas </h6>
+  </div>
+</footer>
+
+<router-outlet></router-outlet>

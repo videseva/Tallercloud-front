@@ -1,0 +1,45 @@
+/* You can add global styles to this file, and also import other style files */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    width: 100%;
+    overflow-x: hidden;
+    background-color: #f8f7f7 !important;
+   
+    
+
+}
+
+.container {
+    flex: 1;
+}
+
+h1{
+  text-align: center;
+  text-transform: uppercase;
+  color: #a3a2a2 !important;
+}
+h5{
+    color: #a3a2a2 !important;
+
+}
+.card{
+    border: none !important;
+    -webkit-box-shadow: 10px 9px 13px -9px rgba(184,182,184,1);
+-moz-box-shadow: 10px 9px 13px -9px rgba(184,182,184,1);
+box-shadow: 10px 9px 13px -9px rgba(184,182,184,1);
+}
+ .form-group{
+    
+    margin-top: 1rem;
+}
+
+.tabla{
+    margin-top: 2rem ;
+    text-align: center;
+}
+
+.pie{
+    text-align: center;
+}
